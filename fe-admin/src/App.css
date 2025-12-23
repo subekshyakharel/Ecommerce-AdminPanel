@@ -1,0 +1,62 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.user-main{
+    min-height: 100vh;
+}
+
+/* sidebar style  */
+.sidebar {
+    background: linear-gradient(pink, rgb(243, 69, 191));
+}
+.sidebarStack{
+    margin-top: 8rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left inside the link */
+  gap: 8px; /* space between icon and text */
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+.sidebar-link span {
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.sidebar-link.active {
+  background-color: #ffd6d6; /* light pink background */
+  position: relative;
+}
+
+.sidebar-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 10px;              /* left strip width */
+  background-color: #ff9ca1; /* darker pink strip */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Hide span text on small screens */
+@media (max-width: 1020px) {
+  .sidebar-link span {
+    display: none;
+  }
+
+  .sidebar-link {
+    justify-content: center; /* center icon when text is hidden */
+  }
+}

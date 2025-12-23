@@ -1,0 +1,106 @@
+# admin api list
+
+@rootUrl = http://localhost:2000
+
+### check server status
+GET {{rootUrl}}
+
+### post user
+POST {{rootUrl}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "fName":"subekshya",
+    "lName":"kharel",
+    "email":"b@r.com",
+    "phone":12344,
+    "password":"123"
+}
+
+### login user
+POST {{rootUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email":"b@r.com",
+    "password":"123"
+}
+
+### renew jwt
+GET {{rootUrl}}/api/v1/auth/renew-jwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTUyNTQyMTcsImV4cCI6MTc1Nzg0NjIxN30.IWDDMNaMgjATMW10ZAVdJznTuvaL8oLs4zRBqKlKh_A
+
+
+### get admin profile
+GET {{rootUrl}}/api/v1/admins/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTQ4Mzc5MTIsImV4cCI6MTc1NDkyNDMxMn0.Drw_uv4kF9U0WLGhRaf0o-Bkho6XaS0YfwxKHVY5H68
+
+### get all admins
+GET {{rootUrl}}/api/v1/admins/alladmin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTQ5MjE4NDMsImV4cCI6MTc1NTAwODI0M30.0xFS6uJ6bTqrP7ylOEUmjbeGVmPTTH1_j68YAiBlRAo
+
+
+### post new category
+POST {{rootUrl}}/api/v1/category
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTUwNTQ3OTMsImV4cCI6MTc1NTE0MTE5M30.HAJd8C-8qw29iaJos1cX_nsrqMLIxxRUR0lvSM7zfSo
+
+{
+    "title":"title"
+}
+
+
+### post new product
+POST {{rootUrl}}/api/v1/product
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTQ5OTA0MDgsImV4cCI6MTc1NTA3NjgwOH0.SOqTN3gtjx2Cjta5Fc5mUqG-MYP_b-bblKekkkG11b8
+
+{
+    "title":"Stylish cotton T-shirt",
+    "imgUrl":"https://res.cloudinary.com/demo/image/upload/v1690000000/products/tshirt-main.jpg",
+    "description":"Comfortable cotton t-shirt available in multiple colors and sizes.",
+    "price":"19.99",
+    "stock":10, 
+    "attribute":{
+        "size":["s", "m", "l", "xl"],
+        "color":["red", "blue", "black"],
+        "brand":"cotton"
+    }
+}
+
+
+### get all category
+GET {{rootUrl}}/api/v1/allCategory
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTUxNzY0NzAsImV4cCI6MTc1NTI2Mjg3MH0.HruU0qdo_51ENRHxLqrlvs0lVuP7gSd3PQD89aczTLg
+
+### get parent product
+GET {{rootUrl}}/api/v1/parent
+
+### get all product
+GET {{rootUrl}}/api/v1/getAllProduct
+
+### get signgle product
+GET {{rootUrl}}/api/v1/public/68cf7acc80f69650f55b47bf
+
+### delete a product
+DELETE {{rootUrl}}/api/v1/68c8cb8a353003768b692e24
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTg0MjU3NDAsImV4cCI6MTc1ODUxMjE0MH0.YcGPBTKUId_saYLkmGuuYC8rojPOinBPFCA6QjFpSF0
+
+
+### update a product
+PUT {{rootUrl}}/api/v1/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NjQ4MTYzNTIsImV4cCI6MTc2NDkwMjc1Mn0.1ED72KcrwbSIgik64UxMhjNr3HbrZ7qJ4L6iKcaViKw
+
+{
+    "_id": "68cf7acc80f69650f55b47bf",
+    "title": "Stylish cotton T-shirt",
+    "imageList": ["https://res.cloudinary.com/demo/image/upload/v1690000000/products/tshirt-main.jpg"],
+    "description": "Comfortable cotton t-shirt available in multiple colors and sizes.",
+    "price": 19.99,
+    "stock": 10, 
+    "size": ["s", "m", "l", "xl"],
+    "color": ["red", "blue", "black"],
+    "brand": "cotton"
+}
