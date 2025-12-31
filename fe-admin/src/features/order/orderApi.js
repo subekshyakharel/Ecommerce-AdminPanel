@@ -11,3 +11,14 @@ export const fetchAllOrderApi = async () => {
   const result = await apiProcessor(obj);
   return result;
 };
+
+export const updateOrderApi = async (id, payload) => {
+  const obj = {
+    method: "patch",
+    url: orderApiEp + "/" + id,
+    payload,
+    showToast: true,
+  };
+  const result = await apiProcessor(obj);
+  return result;
+};

@@ -31,9 +31,9 @@ const OrdersPage = () => {
     
       const visibleRows = allOrder.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
-      const handleOnEdit = ()=>{
+      const handleOnEdit = (id)=>{
     dispatch(
-      setModalContent({ content: <EditOrderform />, title: "Edit Status" })
+      setModalContent({ content: <EditOrderform id={id} />, title: "Edit Status" })
     );
     dispatch(setmodalShow(true));
 
@@ -44,7 +44,7 @@ const OrdersPage = () => {
 
  <div className="mt-5">
        <div className="p-4 d-flex justify-content-between align-items-center">
-     <h3>Product</h3>
+     <h3>Orders</h3>
    </div>
    
    <hr />
@@ -88,7 +88,7 @@ const OrdersPage = () => {
                    <TableCell>{item.orderNumber}</TableCell>
                    <TableCell align="left">{item.productTitle} {" - "} {item.quantity}</TableCell>
                    <TableCell align='center'>{item.price}</TableCell>
-                   <TableCell onClick={handleOnEdit} align="center" style={{color:"blue"}}><RiEdit2Fill size={30} /></TableCell>
+                   <TableCell onClick={()=>handleOnEdit(item._id)} align="center" style={{color:"blue"}}><RiEdit2Fill size={30} /></TableCell>
                  </TableRow>
                ))}
              </TableBody>

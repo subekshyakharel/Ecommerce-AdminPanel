@@ -11,6 +11,7 @@ import Admins from '../pages/Admins'
 import Customer from '../pages/customer'
 import Product from '../pages/Product'
 import OrdersPage from '../pages/OrdersPage'
+import ReviewLandingPage from '../pages/ReviewLandingPage'
 
 const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const AppRoutes = () => {
           <Route path='orders' element={<OrdersPage/>}/>
           <Route path='categories' element={<Categories/>}/>
           <Route path='reviews' element={<Reviews/>}/>
+          <Route path='reviews/:id' element={<ReviewLandingPage/>}/>
           <Route path='products' element={<Product/>}/>
           <Route path='admins' element={<Admins/>}/>
           <Route path='customer' element={<Customer/>}/>

@@ -60,3 +60,102 @@ html, body, #root {
     justify-content: center; /* center icon when text is hidden */
   }
 }
+
+
+/* review start  */
+.review-wrapper {
+  margin-top: 20px;
+}
+
+.review-container {
+  padding: 0;
+}
+
+/* Controls side spacing */
+.review-inner {
+  max-width: 1200px;   /* keeps it elegant on large screens */
+  margin: 0 auto;
+  padding: 0 20px;     /* LEFT & RIGHT margin */
+}
+
+/* Card */
+.review-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid #eef0f3;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Layout */
+.review-content {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+/* Avatar */
+.review-profile {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Body */
+.review-body {
+  flex-grow: 1;
+}
+
+/* Header */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.review-name {
+  margin: 0;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Date */
+.review-date {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+/* Stars */
+.review-rating {
+  margin-top: 2px;
+}
+
+.stars {
+  color: #fbbf24;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Message */
+.review-message {
+  margin-top: 10px;
+  color: #374151;
+  line-height: 1.65;
+  font-size: 0.95rem;
+}

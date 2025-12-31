@@ -1,4 +1,4 @@
-import { fetchAllOrderApi } from "./orderApi";
+import { fetchAllOrderApi, updateOrderApi } from "./orderApi";
 import { setAllOrder } from "./orderSlice";
 
 export const fetchAllOrderAction = () => async (dispatch) => {
@@ -11,3 +11,12 @@ export const fetchAllOrderAction = () => async (dispatch) => {
     console.log("Failed to fetch your order: ", error.message);
   }
 };
+
+// export const updateOrderAction = (id, payload) => async (dispatch) => {
+//   try {
+//     const { status, message } = await updateOrderApi(id, payload);
+//     if(statu)
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };

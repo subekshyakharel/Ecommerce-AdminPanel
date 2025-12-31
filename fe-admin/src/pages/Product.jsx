@@ -20,6 +20,7 @@ import { deleteProductApi } from "../features/product/productApi.js";
 import { FaEdit } from "react-icons/fa";
 import EditProductForm from "../components/form/EditProductForm.jsx";
 
+
 const Product = () => {
   const dispatch = useDispatch();
   const { allProduct } = useSelector((state) => state.productInfo);
@@ -73,6 +74,7 @@ const Product = () => {
   return (
     <div>
       <div className="mt-5">
+      
         <div className="p-4 d-flex justify-content-between align-items-center">
           <h3>Product</h3>
 

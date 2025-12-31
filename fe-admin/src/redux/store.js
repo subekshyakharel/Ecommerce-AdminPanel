@@ -5,6 +5,7 @@ import categoryReducer from "../features/category/categorySlice.js";
 import systemReducer from "../features/system/systemSlice.js";
 import orderReducer from "../features/order/orderSlice.js";
 import productReducer from "../features/product/productSlice.js";
+import reviewReducer from "../features/review/reviewSlice.js";
 import storage from "redux-persist/lib/storage";
 
 const categoryPersistConfig = {
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   systemInfo: systemReducer,
   productInfo: productReducer,
   orderInfo: orderReducer,
+  reviewInfo: reviewReducer,
   categoryInfo: persistReducer(categoryPersistConfig, categoryReducer),
 });
 

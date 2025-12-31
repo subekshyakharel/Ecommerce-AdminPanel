@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import React from "react";
 import CategoryForm from "../components/form/CategoryForm";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllCategoriesAction, fetchParentCategoriesAction } from "../features/category/categoryAction.js";
+import {
+  fetchAllCategoriesAction,
+  fetchParentCategoriesAction,
+} from "../features/category/categoryAction.js";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
@@ -22,15 +25,15 @@ import Card from "react-bootstrap/Card";
 
 const Categories = () => {
   const { allCategory } = useSelector((state) => state.categoryInfo);
-  const {parentCategory} = useSelector((state)=> state.categoryInfo)
+  const { parentCategory } = useSelector((state) => state.categoryInfo);
   const [openRow, setOpenRow] = useState(null);
-    const [page, setPage] = useState(0);
+  const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllCategoriesAction());
-    dispatch(fetchParentCategoriesAction())
+    dispatch(fetchParentCategoriesAction());
   }, []);
 
   const handleChangePage = (event, newPage) => setPage(newPage);
@@ -46,7 +49,6 @@ const Categories = () => {
     );
     dispatch(setmodalShow(true));
   };
-
 
   const visibleRows = parentCategory.slice(
     page * rowsPerPage,
@@ -80,14 +82,14 @@ const Categories = () => {
             }}
           >
             <Table sx={{ minWidth: 300 }} aria-label="admin table" stickyHeader>
-             <TableHead>
-  <TableRow>
-    <TableCell>S/N</TableCell>
-    <TableCell>Parent Category</TableCell>
-    <TableCell align="center">Image</TableCell>
-    <TableCell align="right">Action</TableCell>
-  </TableRow>
-</TableHead>
+              <TableHead>
+                <TableRow>
+                  <TableCell>S/N</TableCell>
+                  <TableCell>Parent Category</TableCell>
+                  <TableCell align="center">Image</TableCell>
+                  <TableCell align="right">Action</TableCell>
+                </TableRow>
+              </TableHead>
 
               <TableBody>
                 {visibleRows.map((parent, index) => (
@@ -97,17 +99,18 @@ const Categories = () => {
                       <TableCell>{page * rowsPerPage + index + 1}</TableCell>
                       <TableCell>{parent.parentCategory}</TableCell>
                       <TableCell align="center">
-            <img src={parent.image} alt=""  width={"100"}/>
-          </TableCell>
+                        <img src={parent.image} alt="" width={"100"} />
+                      </TableCell>
                       <TableCell align="right">
-  <Button
-    style={{ background: "skyblue" }}
-    onClick={() => setOpenRow(openRow === parent ? null : parent)}
-  >
-    View SubCat
-  </Button>
-</TableCell>
-
+                        <Button
+                          style={{ background: "skyblue" }}
+                          onClick={() =>
+                            setOpenRow(openRow === parent ? null : parent)
+                          }
+                        >
+                          View SubCat
+                        </Button>
+                      </TableCell>
                     </TableRow>
 
                     {/* Accordion Row */}
@@ -131,29 +134,35 @@ const Categories = () => {
                                   </TableHead>
                                   <TableBody>
                                     {allCategory
-                  .filter((subCat) => subCat.parentCategory === parent.parentCategory) // ✅ filter correctly
-                  .map((subCat, idx) => (
-                    <TableRow key={subCat._id}>
-                      <TableCell>{idx + 1}</TableCell>
-                      <TableCell>{subCat.subCategory}</TableCell>
-                      <TableCell>
-                        <img
-                          src={subCat.image}
-                          alt=""
-                          width="50"
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <AiFillDelete
-                          size={20}
-                          style={{
-                            color: "red",
-                            cursor: "pointer",
-                          }}
-                        />
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                                      .filter(
+                                        (subCat) =>
+                                          subCat.parentCategory ===
+                                          parent.parentCategory
+                                      ) // ✅ filter correctly
+                                      .map((subCat, idx) => (
+                                        <TableRow key={subCat._id}>
+                                          <TableCell>{idx + 1}</TableCell>
+                                          <TableCell>
+                                            {subCat.subCategory}
+                                          </TableCell>
+                                          <TableCell>
+                                            <img
+                                              src={subCat.image}
+                                              alt=""
+                                              width="50"
+                                            />
+                                          </TableCell>
+                                          <TableCell>
+                                            <AiFillDelete
+                                              size={20}
+                                              style={{
+                                                color: "red",
+                                                cursor: "pointer",
+                                              }}
+                                            />
+                                          </TableCell>
+                                        </TableRow>
+                                      ))}
                                   </TableBody>
                                 </Table>
                               </Accordion.Body>
