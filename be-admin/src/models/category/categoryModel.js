@@ -12,3 +12,7 @@ export const getAllCategory = () => {
 export const getParentCategory = () => {
   return CategorySchema.find({ subCategory: null });
 };
+
+export const deleteSubCat = (id) => {
+  return CategorySchema.findByIdAndDelete(id);
+};

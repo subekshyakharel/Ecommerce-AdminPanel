@@ -78,20 +78,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb
 GET {{rootUrl}}/api/v1/parent
 
 ### get all product
-GET {{rootUrl}}/api/v1/getAllProduct
+GET {{rootUrl}}/api/v1/product/getAllProduct
 
 ### get signgle product
-GET {{rootUrl}}/api/v1/public/68cf7acc80f69650f55b47bf
+GET {{rootUrl}}/api/v1/product/public/694a47c71ae1a4fea0386762
 
 ### delete a product
-DELETE {{rootUrl}}/api/v1/68c8cb8a353003768b692e24
+DELETE {{rootUrl}}/api/v1/product/68c8cb8a353003768b692e24
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NTg0MjU3NDAsImV4cCI6MTc1ODUxMjE0MH0.YcGPBTKUId_saYLkmGuuYC8rojPOinBPFCA6QjFpSF0
 
 
 ### update a product
-PUT {{rootUrl}}/api/v1/update
+PUT {{rootUrl}}/api/v1/product/update/68cf7acc80f69650f55b47bf
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3NjQ4MTYzNTIsImV4cCI6MTc2NDkwMjc1Mn0.1ED72KcrwbSIgik64UxMhjNr3HbrZ7qJ4L6iKcaViKw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3Njc1OTgxNTgsImV4cCI6MTc2NzY4NDU1OH0.PWYOyYXfH0xyevGDL_hg0XciNor9EPhKNXgn4Xb7NWg
 
 {
     "_id": "68cf7acc80f69650f55b47bf",
@@ -104,5 +104,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb
     "color": ["red", "blue", "black"],
     "brand": "cotton"
 }
+
+
+#### delete subCategory
+DELETE {{rootUrl}}/api/v1/category/deleteSubCat/695b76f71ab3fc96d6c46e92
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAci5jb20iLCJpYXQiOjE3Njc1OTgxNTgsImV4cCI6MTc2NzY4NDU1OH0.PWYOyYXfH0xyevGDL_hg0XciNor9EPhKNXgn4Xb7NWg
+
 
 

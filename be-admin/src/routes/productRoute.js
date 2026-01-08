@@ -16,7 +16,7 @@ import { parseArrayFields } from "../middlewares/validations/parseArrayFields.js
 const router = express.Router();
 
 router.post(
-  "/product",
+  "/",
   adminAuthMiddleware,
   upload.fields([
     { name: "imgUrl", maxCount: 1 },

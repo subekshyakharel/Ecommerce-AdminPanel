@@ -5,7 +5,7 @@ const categorySchema = new mongoose.Schema(
     parentCategory: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       index: 1,
     },
     subCategory: {
@@ -15,15 +15,13 @@ const categorySchema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      // unique: true,
-      // index: true,
-      default: null,
+      required: true,
+      unique: true,
+      index: true,
     },
     parentSlug: {
       type: String,
-      default: null, // null if it's a parent
-      // unique: true,
-      // index: true,
+      default: null,
     },
     image: {
       type: String,

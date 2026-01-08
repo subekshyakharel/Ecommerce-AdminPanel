@@ -47,9 +47,9 @@ const dispatch = useDispatch();
         <MdReviews size={25} /> <span>Reviews</span>
       </NavLink>
 
-      <NavLink to="/admin/customer" className="sidebar-link">
+      {/* <NavLink to="/admin/customer" className="sidebar-link">
         <MdPeopleAlt size={25} /> <span>Users</span>
-      </NavLink>
+      </NavLink> */}
 
       <NavLink to="/admin/admins" className="sidebar-link">
         <MdAdminPanelSettings size={25} /> <span>Admins</span>

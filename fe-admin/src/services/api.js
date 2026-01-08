@@ -25,10 +25,11 @@ export const apiProcessor = async ({
     const responsePending = axios({
       method,
       url,
-      data: payload,
+      // data: payload,
       headers: isFormData
         ? headers
         : { ...headers, "Content-Type": "application/json" },
+      data: method === "delete" ? payload : payload,
     });
 
     if (showToast) {

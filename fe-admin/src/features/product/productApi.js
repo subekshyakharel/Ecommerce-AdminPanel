@@ -1,14 +1,14 @@
 import { apiProcessor } from "../../services/api";
 
 const apibaseUrl = import.meta.env.VITE_BASE_URL;
-const adminApiEp = apibaseUrl + "/api/v1";
+const adminApiEp = apibaseUrl + "/api/v1/product";
 
 //call api to fetch the admin
 export const postProductApi = async (payload) => {
   try {
     const obj = {
       method: "post",
-      url: adminApiEp + "/product",
+      url: adminApiEp,
       showToast: true,
       isPrivateCall: true,
       payload,

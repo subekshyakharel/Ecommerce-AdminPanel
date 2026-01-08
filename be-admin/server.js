@@ -20,8 +20,8 @@ import productRoute from "./src/routes/productRoute.js";
 import categoryRoute from "./src/routes/categoryRoute.js";
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/admins", adminRoute);
-app.use("/api/v1", productRoute);
-app.use("/api/v1", categoryRoute);
+app.use("/api/v1/product", productRoute);
+app.use("/api/v1/category", categoryRoute);
 
 app.get("/", (req, res) => {
   res.json({

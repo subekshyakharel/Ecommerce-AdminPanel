@@ -22,6 +22,8 @@ import {
 import Accordion from "react-bootstrap/Accordion";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
+import { deleteSubCatApi } from "../features/category/categoryApi.js";
+import { setAllCategory } from "../features/category/categorySlice.js";
 
 const Categories = () => {
   const { allCategory } = useSelector((state) => state.categoryInfo);
@@ -54,6 +56,19 @@ const Categories = () => {
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
+
+const handleOnDeleteSub = async (subCat) => {
+  if (window.confirm("Are you sure you want to delete sub category?")) {
+    const { status } = await deleteSubCatApi(subCat._id);
+    if (status === "success") {
+      dispatch(setAllCategory(
+        allCategory.filter(cat => cat._id !== subCat._id)
+      ));
+    }
+  }
+};
+
+
 
   return (
     <>
@@ -138,7 +153,7 @@ const Categories = () => {
                                         (subCat) =>
                                           subCat.parentCategory ===
                                           parent.parentCategory
-                                      ) // ✅ filter correctly
+                                      ) //  filter correctly
                                       .map((subCat, idx) => (
                                         <TableRow key={subCat._id}>
                                           <TableCell>{idx + 1}</TableCell>
@@ -154,6 +169,7 @@ const Categories = () => {
                                           </TableCell>
                                           <TableCell>
                                             <AiFillDelete
+                                            onClick={()=>handleOnDeleteSub(subCat)}
                                               size={20}
                                               style={{
                                                 color: "red",

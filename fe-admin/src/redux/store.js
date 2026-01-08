@@ -19,6 +19,7 @@ const rootReducer = combineReducers({
   productInfo: productReducer,
   orderInfo: orderReducer,
   reviewInfo: reviewReducer,
+  // categoryInfo: categoryReducer,
   categoryInfo: persistReducer(categoryPersistConfig, categoryReducer),
 });
 

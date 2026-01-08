@@ -1,4 +1,5 @@
 import {
+  deleteSubCatApi,
   fetchAllCategories,
   fetchParentCategories,
   postCategoryApi,
@@ -31,3 +32,12 @@ export const fetchParentCategoriesAction = () => async (dispatch) => {
     console.error("Failed to fetch categories:", error);
   }
 };
+
+// export const deleteSubCatAction = (id) => async (dispatch) => {
+//   try {
+//     const { status, message } = await deleteSubCatApi(id);
+//     if(status==="success")
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };

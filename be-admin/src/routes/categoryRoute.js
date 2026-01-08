@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  deleteSubCatController,
   fetchAllCategories,
   fetchParentCategoryController,
   insertNewCategory,
@@ -10,7 +11,7 @@ import { upload } from "../utils/multer.js";
 const router = express.Router();
 
 router.post(
-  "/category",
+  "/",
   adminAuthMiddleware,
   upload.single("image"),
   // newCategoryDataValidation,
@@ -20,4 +21,6 @@ router.post(
 router.get("/allCategory", fetchAllCategories);
 
 router.get("/parent", fetchParentCategoryController);
+
+router.delete("/deleteSubCat/:id", adminAuthMiddleware, deleteSubCatController);
 export default router;
