@@ -1,6 +1,7 @@
 import { apiProcessor } from "../../services/api";
 
-const apibaseUrl = "http://localhost:3000";
+const apibaseUrl = import.meta.env.VITE_BASE_URL_CLIENT;
+// || "http://localhost:3000";
 const reviewEpApi = apibaseUrl + "/api/v1";
 
 export const getReviewedProductApi = async () => {
