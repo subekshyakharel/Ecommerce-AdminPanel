@@ -72,8 +72,9 @@ const handleOnSubmit = async (e) => {
               <div className="d-grid mt-3">
                 <Button variant="dark" disabled={isPending}  type="submit">Login</Button>
               </div>
-            </Form>
+            </Form>           
           </Col>
+          <p className="text-center mt-2">Test Email: b@r.com <br /> Test Password: 123</p>
         </Row>
       </Container>
     </div>
