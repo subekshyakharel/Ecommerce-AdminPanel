@@ -21,6 +21,7 @@ const Login = () => {
   const {admin} = useSelector((state)=> state.adminInfo)
   const navigate = useNavigate();
   const location = useLocation();
+  const [isPending, setIsPending] = useState(false)
 
   const goto = location?.state?.from?.pathname || "/admin/dashboard"
   useEffect(()=>{
@@ -29,25 +30,33 @@ const Login = () => {
 
 const handleOnSubmit = async (e) => {
   e.preventDefault();
-  setIsLoading(true);
-  if (form.email && form.password) {
-    const { status, message, payload } = await loginAdminApi(form);
-    sessionStorage.setItem("accessJWT", payload.accessJWT);
-    localStorage.setItem("refreshJWT", payload.refreshJWT);
-    setIsLoading(false);
+
+  if (!form.email || !form.password) {
+    return alert("Both input must be provided");
+  }
+
+  if (isPending) return; // prevent double click
+
+  setIsPending(true); // button disabled
+
+  try {
+    const { status, payload } = await loginAdminApi(form);
 
     if (status === "success") {
+      sessionStorage.setItem("accessJWT", payload.accessJWT);
+      localStorage.setItem("refreshJWT", payload.refreshJWT);
+
       setForm(initialState);
-      console.log("Navigating to:", goto);
-navigate(goto);
-   // navigate immediately on success
-      dispatch(fetchAdminAction()); // fetch user data if needed
+      dispatch(fetchAdminAction());
+      navigate(goto);
     }
-  } else {
-    alert("Both input must be provided");
-    setIsLoading(false);
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setIsPending(false); // 🔓 button enabled ALWAYS
   }
 };
+
 
 
   return (
@@ -61,7 +70,7 @@ navigate(goto);
                 <CustomInput value={form[input.name] || ""} onChange={handleOnChange} key={i} {...input} />
               ))}
               <div className="d-grid mt-3">
-                <Button variant="dark"  type="submit">Login</Button>
+                <Button variant="dark" disabled={isPending}  type="submit">Login</Button>
               </div>
             </Form>
           </Col>
